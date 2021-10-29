@@ -1,0 +1,1 @@
+SELECT supplier_payment('S003') AS TOTAL_PRICE FROM DUAL;
