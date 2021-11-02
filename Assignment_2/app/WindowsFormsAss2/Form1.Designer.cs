@@ -48,7 +48,7 @@
             this.username = new System.Windows.Forms.Label();
             this.suppliers = new System.Windows.Forms.TabPage();
             this.label_search = new System.Windows.Forms.Label();
-            this.patSearchButton = new System.Windows.Forms.Button();
+            this.supSearchButton = new System.Windows.Forms.Button();
             this.supply_info = new System.Windows.Forms.Label();
             this.data_supply = new System.Windows.Forms.DataGridView();
             this.supplier_info = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.search_by_name = new System.Windows.Forms.Label();
             this.data_supplier = new System.Windows.Forms.DataGridView();
             this.addSupplier = new System.Windows.Forms.TabPage();
+            this.button_add_supplier = new System.Windows.Forms.Button();
             this.label_add = new System.Windows.Forms.Label();
             this.add_text_acc = new System.Windows.Forms.TextBox();
             this.add_text_code = new System.Windows.Forms.TextBox();
@@ -74,13 +75,18 @@
             this.data_category = new System.Windows.Forms.DataGridView();
             this.label_category_list = new System.Windows.Forms.Label();
             this.report = new System.Windows.Forms.TabPage();
+            this.data_report_lower = new System.Windows.Forms.DataGridView();
             this.report_print = new System.Windows.Forms.RichTextBox();
             this.report_preview = new System.Windows.Forms.Label();
             this.report_find = new System.Windows.Forms.Button();
             this.text_report = new System.Windows.Forms.TextBox();
             this.label_customer_code = new System.Windows.Forms.Label();
-            this.data_report = new System.Windows.Forms.DataGridView();
+            this.data_report_upper = new System.Windows.Forms.DataGridView();
             this.label_report = new System.Windows.Forms.Label();
+            this.add_text_id = new System.Windows.Forms.TextBox();
+            this.add_supplier_id = new System.Windows.Forms.Label();
+            this.add_text_essn = new System.Windows.Forms.TextBox();
+            this.add_super_employee = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.LoginPage.SuspendLayout();
             this.suppliers.SuspendLayout();
@@ -90,7 +96,8 @@
             this.categoryList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_category)).BeginInit();
             this.report.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_report)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data_report_lower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data_report_upper)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -98,6 +105,7 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // tabControl1
             // 
@@ -140,7 +148,7 @@
             this.textBox_HostPort.Location = new System.Drawing.Point(141, 412);
             this.textBox_HostPort.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_HostPort.Name = "textBox_HostPort";
-            this.textBox_HostPort.Size = new System.Drawing.Size(58, 22);
+            this.textBox_HostPort.Size = new System.Drawing.Size(105, 22);
             this.textBox_HostPort.TabIndex = 12;
             this.textBox_HostPort.Text = "1521";
             // 
@@ -149,7 +157,7 @@
             this.textBox_HostIP.Location = new System.Drawing.Point(141, 366);
             this.textBox_HostIP.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_HostIP.Name = "textBox_HostIP";
-            this.textBox_HostIP.Size = new System.Drawing.Size(58, 22);
+            this.textBox_HostIP.Size = new System.Drawing.Size(105, 22);
             this.textBox_HostIP.TabIndex = 11;
             this.textBox_HostIP.Text = "127.0.0.1";
             // 
@@ -210,6 +218,7 @@
             // 
             this.text_password.Location = new System.Drawing.Point(141, 96);
             this.text_password.Name = "text_password";
+            this.text_password.PasswordChar = '*';
             this.text_password.Size = new System.Drawing.Size(138, 22);
             this.text_password.TabIndex = 5;
             // 
@@ -263,7 +272,7 @@
             // suppliers
             // 
             this.suppliers.Controls.Add(this.label_search);
-            this.suppliers.Controls.Add(this.patSearchButton);
+            this.suppliers.Controls.Add(this.supSearchButton);
             this.suppliers.Controls.Add(this.supply_info);
             this.suppliers.Controls.Add(this.data_supply);
             this.suppliers.Controls.Add(this.supplier_info);
@@ -292,16 +301,17 @@
             this.label_search.Text = "Search for\r\nSupplier and Supply";
             this.label_search.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // patSearchButton
+            // supSearchButton
             // 
-            this.patSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.2F);
-            this.patSearchButton.Location = new System.Drawing.Point(391, 28);
-            this.patSearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.patSearchButton.Name = "patSearchButton";
-            this.patSearchButton.Size = new System.Drawing.Size(110, 64);
-            this.patSearchButton.TabIndex = 16;
-            this.patSearchButton.Text = "SEARCH";
-            this.patSearchButton.UseVisualStyleBackColor = true;
+            this.supSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.2F);
+            this.supSearchButton.Location = new System.Drawing.Point(391, 28);
+            this.supSearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.supSearchButton.Name = "supSearchButton";
+            this.supSearchButton.Size = new System.Drawing.Size(110, 64);
+            this.supSearchButton.TabIndex = 16;
+            this.supSearchButton.Text = "SEARCH";
+            this.supSearchButton.UseVisualStyleBackColor = true;
+            this.supSearchButton.Click += new System.EventHandler(this.supSearchButton_Click);
             // 
             // supply_info
             // 
@@ -378,6 +388,11 @@
             // 
             // addSupplier
             // 
+            this.addSupplier.Controls.Add(this.add_super_employee);
+            this.addSupplier.Controls.Add(this.add_text_essn);
+            this.addSupplier.Controls.Add(this.add_supplier_id);
+            this.addSupplier.Controls.Add(this.add_text_id);
+            this.addSupplier.Controls.Add(this.button_add_supplier);
             this.addSupplier.Controls.Add(this.label_add);
             this.addSupplier.Controls.Add(this.add_text_acc);
             this.addSupplier.Controls.Add(this.add_text_code);
@@ -394,6 +409,18 @@
             this.addSupplier.TabIndex = 2;
             this.addSupplier.Text = "Add Supplier";
             this.addSupplier.UseVisualStyleBackColor = true;
+            // 
+            // button_add_supplier
+            // 
+            this.button_add_supplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.2F);
+            this.button_add_supplier.Location = new System.Drawing.Point(131, 346);
+            this.button_add_supplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_add_supplier.Name = "button_add_supplier";
+            this.button_add_supplier.Size = new System.Drawing.Size(845, 64);
+            this.button_add_supplier.TabIndex = 19;
+            this.button_add_supplier.Text = "Click to add";
+            this.button_add_supplier.UseVisualStyleBackColor = true;
+            this.button_add_supplier.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label_add
             // 
@@ -524,7 +551,6 @@
             this.label_supplier_code.Size = new System.Drawing.Size(262, 24);
             this.label_supplier_code.TabIndex = 21;
             this.label_supplier_code.Text = "Enter the code of suppliers";
-            this.label_supplier_code.Click += new System.EventHandler(this.searchingPatientInstructionLabel_Quang_Click);
             // 
             // data_category
             // 
@@ -549,12 +575,13 @@
             // 
             // report
             // 
+            this.report.Controls.Add(this.data_report_lower);
             this.report.Controls.Add(this.report_print);
             this.report.Controls.Add(this.report_preview);
             this.report.Controls.Add(this.report_find);
             this.report.Controls.Add(this.text_report);
             this.report.Controls.Add(this.label_customer_code);
-            this.report.Controls.Add(this.data_report);
+            this.report.Controls.Add(this.data_report_upper);
             this.report.Controls.Add(this.label_report);
             this.report.Location = new System.Drawing.Point(4, 25);
             this.report.Name = "report";
@@ -563,6 +590,17 @@
             this.report.TabIndex = 4;
             this.report.Text = "Report";
             this.report.UseVisualStyleBackColor = true;
+            // 
+            // data_report_lower
+            // 
+            this.data_report_lower.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_report_lower.Location = new System.Drawing.Point(19, 286);
+            this.data_report_lower.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.data_report_lower.Name = "data_report_lower";
+            this.data_report_lower.RowHeadersWidth = 51;
+            this.data_report_lower.RowTemplate.Height = 24;
+            this.data_report_lower.Size = new System.Drawing.Size(420, 139);
+            this.data_report_lower.TabIndex = 29;
             // 
             // report_print
             // 
@@ -593,6 +631,7 @@
             this.report_find.TabIndex = 26;
             this.report_find.Text = "Find";
             this.report_find.UseVisualStyleBackColor = true;
+            this.report_find.Click += new System.EventHandler(this.report_find_Click);
             // 
             // text_report
             // 
@@ -612,16 +651,16 @@
             this.label_customer_code.TabIndex = 24;
             this.label_customer_code.Text = "Enter the code of customer";
             // 
-            // data_report
+            // data_report_upper
             // 
-            this.data_report.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_report.Location = new System.Drawing.Point(19, 135);
-            this.data_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.data_report.Name = "data_report";
-            this.data_report.RowHeadersWidth = 51;
-            this.data_report.RowTemplate.Height = 24;
-            this.data_report.Size = new System.Drawing.Size(420, 290);
-            this.data_report.TabIndex = 21;
+            this.data_report_upper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_report_upper.Location = new System.Drawing.Point(19, 135);
+            this.data_report_upper.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.data_report_upper.Name = "data_report_upper";
+            this.data_report_upper.RowHeadersWidth = 51;
+            this.data_report_upper.RowTemplate.Height = 24;
+            this.data_report_upper.Size = new System.Drawing.Size(420, 139);
+            this.data_report_upper.TabIndex = 21;
             // 
             // label_report
             // 
@@ -633,6 +672,44 @@
             this.label_report.Size = new System.Drawing.Size(212, 32);
             this.label_report.TabIndex = 20;
             this.label_report.Text = "Order\'s Report";
+            // 
+            // add_text_id
+            // 
+            this.add_text_id.Location = new System.Drawing.Point(858, 77);
+            this.add_text_id.Margin = new System.Windows.Forms.Padding(4);
+            this.add_text_id.Name = "add_text_id";
+            this.add_text_id.Size = new System.Drawing.Size(118, 22);
+            this.add_text_id.TabIndex = 20;
+            // 
+            // add_supplier_id
+            // 
+            this.add_supplier_id.AutoSize = true;
+            this.add_supplier_id.Location = new System.Drawing.Point(773, 80);
+            this.add_supplier_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.add_supplier_id.Name = "add_supplier_id";
+            this.add_supplier_id.Size = new System.Drawing.Size(77, 17);
+            this.add_supplier_id.TabIndex = 21;
+            this.add_supplier_id.Text = "Supplier ID";
+            this.add_supplier_id.Click += new System.EventHandler(this.label1_Click_4);
+            // 
+            // add_text_essn
+            // 
+            this.add_text_essn.Location = new System.Drawing.Point(858, 134);
+            this.add_text_essn.Margin = new System.Windows.Forms.Padding(4);
+            this.add_text_essn.Name = "add_text_essn";
+            this.add_text_essn.Size = new System.Drawing.Size(118, 22);
+            this.add_text_essn.TabIndex = 22;
+            // 
+            // add_super_employee
+            // 
+            this.add_super_employee.AutoSize = true;
+            this.add_super_employee.Location = new System.Drawing.Point(714, 137);
+            this.add_super_employee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.add_super_employee.Name = "add_super_employee";
+            this.add_super_employee.Size = new System.Drawing.Size(136, 17);
+            this.add_super_employee.TabIndex = 23;
+            this.add_super_employee.Text = "Managing Employee";
+            this.add_super_employee.Click += new System.EventHandler(this.label1_Click_5);
             // 
             // Form1
             // 
@@ -659,7 +736,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_category)).EndInit();
             this.report.ResumeLayout(false);
             this.report.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_report)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data_report_lower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data_report_upper)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -681,7 +759,7 @@
         private System.Windows.Forms.Label label_appname;
         private System.Windows.Forms.Label label_current;
         private System.Windows.Forms.Label label_status;
-        private System.Windows.Forms.Button patSearchButton;
+        private System.Windows.Forms.Button supSearchButton;
         private System.Windows.Forms.Label supply_info;
         private System.Windows.Forms.DataGridView data_supply;
         private System.Windows.Forms.Label supplier_info;
@@ -705,17 +783,23 @@
         private System.Windows.Forms.Label label_supplier_code;
         private System.Windows.Forms.TextBox supplier_code_box;
         private System.Windows.Forms.Button supplier_find;
-        private System.Windows.Forms.RichTextBox report_print;
         private System.Windows.Forms.Label report_preview;
         private System.Windows.Forms.Button report_find;
         private System.Windows.Forms.TextBox text_report;
         private System.Windows.Forms.Label label_customer_code;
-        private System.Windows.Forms.DataGridView data_report;
+        private System.Windows.Forms.DataGridView data_report_upper;
         private System.Windows.Forms.Label label_report;
         private System.Windows.Forms.Label hostIP;
         private System.Windows.Forms.Label hostPort;
         private System.Windows.Forms.TextBox textBox_HostPort;
         private System.Windows.Forms.TextBox textBox_HostIP;
+        private System.Windows.Forms.Button button_add_supplier;
+        private System.Windows.Forms.DataGridView data_report_lower;
+        private System.Windows.Forms.RichTextBox report_print;
+        private System.Windows.Forms.Label add_supplier_id;
+        private System.Windows.Forms.TextBox add_text_id;
+        private System.Windows.Forms.Label add_super_employee;
+        private System.Windows.Forms.TextBox add_text_essn;
     }
 }
 
