@@ -1,0 +1,14 @@
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\WindowsFormsAss2.exe.config
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\WindowsFormsAss2.exe
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\WindowsFormsAss2.pdb
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\Oracle.DataAccess.dll
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\Oracle.ManagedDataAccess.dll
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\bin\x64\Debug\Oracle.Web.dll
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.Form1.resources
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.Properties.Resources.resources
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.csproj.GenerateResource.cache
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.csproj.CoreCompileInputs.cache
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.csproj.CopyComplete
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.exe
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.pdb
+D:\HCMUT\Semester 211\Database Systems\Assignment_2\app\WindowsFormsAss2\obj\x64\Debug\WindowsFormsAss2.csprojAssemblyReference.cache
