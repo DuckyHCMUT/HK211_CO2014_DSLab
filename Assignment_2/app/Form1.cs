@@ -93,9 +93,11 @@ namespace WindowsFormsAss2
                                 dataTable.Load(dataReader);
                                 if (dataTable.Rows.Count == 0)
                                 {
+                                    data_supplier.DataSource = null;
                                     throw new Exception("Supplier ID not found!");
                                 }
-                                data_supplier.DataSource = dataTable;
+                                else
+                                    data_supplier.DataSource = dataTable;
 
                                 // Read and display supplement
                                 using (OracleCommand cmd_supply = new OracleCommand(display_supply_ID(supplierIdTxt), this.dbConn))
@@ -106,9 +108,11 @@ namespace WindowsFormsAss2
                                         dataTable_supply.Load(dataReader_supply);
                                         if (dataTable_supply.Rows.Count == 0)
                                         {
+                                            data_supply.DataSource = null;
                                             throw new Exception("No supplement found!");
                                         }
-                                        data_supply.DataSource = dataTable_supply;
+                                        else
+                                            data_supply.DataSource = dataTable_supply;
                                     }
                                 }
                             }
@@ -125,9 +129,11 @@ namespace WindowsFormsAss2
                                 dataTable.Load(dataReader);
                                 if (dataTable.Rows.Count == 0)
                                 {
-                                    throw new Exception("Supplier name not found!");
+                                    data_supplier.DataSource = null;
+                                    throw new Exception("Supplier ID not found!");
                                 }
-                                data_supplier.DataSource = dataTable;
+                                else
+                                    data_supplier.DataSource = dataTable;
 
                                 // Read and display supplement
                                 using (OracleCommand cmd_supply = new OracleCommand(display_supply_name(supplierNameTxt), this.dbConn))
@@ -138,9 +144,11 @@ namespace WindowsFormsAss2
                                         dataTable_supply.Load(dataReader_supply);
                                         if (dataTable_supply.Rows.Count == 0)
                                         {
+                                            data_supply.DataSource = null;
                                             throw new Exception("No supplement found!");
                                         }
-                                        data_supply.DataSource = dataTable_supply;
+                                        else
+                                            data_supply.DataSource = dataTable_supply;
                                     }
                                 }
                             }
@@ -157,9 +165,11 @@ namespace WindowsFormsAss2
                                 dataTable.Load(dataReader);
                                 if (dataTable.Rows.Count == 0)
                                 {
-                                    throw new Exception("Supplier not found!");
+                                    data_supplier.DataSource = null;
+                                    throw new Exception("Supplier ID not found!");
                                 }
-                                data_supplier.DataSource = dataTable;
+                                else
+                                    data_supplier.DataSource = dataTable;
 
                                 // Read and display supplement
                                 using (OracleCommand cmd_supply = new OracleCommand(display_supply_both(supplierIdTxt, supplierNameTxt), this.dbConn))
@@ -170,9 +180,11 @@ namespace WindowsFormsAss2
                                         dataTable_supply.Load(dataReader_supply);
                                         if (dataTable_supply.Rows.Count == 0)
                                         {
-                                            throw new Exception("No supplement found!");
+                                            data_supply.DataSource = null;
+                                            throw new Exception("No supplement found!"); 
                                         }
-                                        data_supply.DataSource = dataTable_supply;
+                                        else
+                                            data_supply.DataSource = dataTable_supply;
                                     }
                                 }
                             }
@@ -180,7 +192,7 @@ namespace WindowsFormsAss2
                     }
                     else
                     {
-                        throw new Exception("Please fill in 1 search box!");
+                        throw new Exception("Please fill in at least 1 search box!");
                     }
                 }
                 else
@@ -191,8 +203,6 @@ namespace WindowsFormsAss2
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                data_supplier.DataSource = null;
-                data_supply.DataSource = null;
             }
         }
 
@@ -492,7 +502,6 @@ namespace WindowsFormsAss2
                     cmd_add_supplier.ExecuteNonQuery();
                     this.fabricTrans.Commit();
                     MessageBox.Show("Successfully added supplier information!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    clear_insert();
                 }
                 catch (Exception ex)
                 {
@@ -514,7 +523,7 @@ namespace WindowsFormsAss2
                 {
                     cmd_add_phone.ExecuteNonQuery();
                     this.fabricTrans.Commit();
-                    MessageBox.Show("Phone numbder added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Phone number added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     clear_insert();
                 }
                 catch (Exception ex)
@@ -549,7 +558,7 @@ namespace WindowsFormsAss2
         {
             // 2 lines are the same
             add_text_name.Text = add_text_acc.Text = add_text_addr.Text = "";
-            add_text_code.Text = add_text_essn.Text = "";
+            add_text_code.Text = add_text_essn.Text = add_text_phone.Text = "";
         }
         // End of Part 2
 
