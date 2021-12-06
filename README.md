@@ -11,7 +11,7 @@ How to run:
 
 # Result (Updated on December 6th, 2021):
 - Assignment 1: 7.5
-- Assignemnt 2: 9.5
+- Assignment 2: 9.5
 - Overall: 8.5
 
 ### ありがとうございます！ :cheese:  :cheese:  :cheese:
